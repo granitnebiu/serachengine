@@ -1,6 +1,7 @@
 import Header from "@/Header";
 import Image from "next/image";
 import { SearchIcon, MicrophoneIcon } from "@heroicons/react/solid";
+import Footer from "@/Footer";
 
 export default function Home() {
   return (
@@ -17,7 +18,11 @@ export default function Home() {
         />
         <div className="mx-auto mt-5 flex w-full max-w-[90%] items-center rounded-full border border-gray-200 px-5 py-3 focus-within:shadow-lg hover:shadow-lg sm:max-w-xl lg:max-w-2xl">
           <SearchIcon className="mr-3 h-5 text-gray-500" />
-          <input type="text" className="flex-grow focus:outline-none" placeholder="granit" />
+          <input
+            type="text"
+            className="flex-grow focus:outline-none"
+            placeholder="search something"
+          />
           <MicrophoneIcon className="h-5" />
         </div>
         <div className="mt-8 flex w-1/2 flex-col justify-center space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4">
@@ -26,6 +31,7 @@ export default function Home() {
         </div>
       </form>
       {/* Footer  */}
+      <Footer />
     </div>
   );
 }
