@@ -4,6 +4,7 @@ import { SearchIcon, MicrophoneIcon } from "@heroicons/react/solid";
 import Footer from "@/Footer";
 import { useRouter } from "next/router";
 import { useRef } from "react";
+import Head from "next/head";
 
 export default function Home() {
   const router = useRouter();
@@ -17,8 +18,13 @@ export default function Home() {
     }
     router.push(`/search?term=${term.trim()}`);
   }
+
   return (
     <div className="h-full w-full">
+      <Head>
+        <title>Search something</title>
+      </Head>
+
       {/* Header  */}
       <Header />
       {/* Body  */}
