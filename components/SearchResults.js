@@ -1,4 +1,5 @@
 import React from "react";
+import Parser from "html-react-parser";
 
 export default function SearchResults({ results }) {
   return (
@@ -7,6 +8,21 @@ export default function SearchResults({ results }) {
         About {results.searchInformation.formattedTotalResults} results (
         {results.searchInformation.formattedSearchTime} seconds)
       </p>
+
+      {results.items.map((result) => (
+        <div key={result.link} className="mb-8 max-w-xl">
+          <div className="group">
+            <a className="truncate text-sm" href={result.link}>
+              {result.formattedUrl}
+            </a>
+            <a className="decoration-blue-800 group-hover:underline" href={result.link}>
+              <h2 className="truncate text-xl font-medium text-blue-800">{result.title}</h2>
+            </a>
+          </div>
+          {/* <div dangerouslySetInnerHTML={{ __html: result.htmlSnippet }}></div> */}
+          <p className="text-gray-600">{Parser(result.htmlSnippet)}</p>
+        </div>
+      ))}
     </div>
   );
 }

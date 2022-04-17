@@ -1,11 +1,11 @@
 import SearchHeader from "@/SearchHeader";
 import SearchResults from "@/SearchResults";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import React from "react";
 import Response from "../Response";
-import { useRouter } from "next/router";
 
-export default function search({ results }) {
+export default function Search({ results }) {
   console.log(results);
   const router = useRouter();
   return (
