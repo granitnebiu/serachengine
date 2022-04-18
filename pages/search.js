@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import React from "react";
 import Response from "../Response";
+import ImageResults from "@/ImageResults";
 
 export default function Search({ results }) {
   console.log(results);
@@ -17,12 +18,17 @@ export default function Search({ results }) {
       <SearchHeader />
 
       {/* Search Results */}
-      <SearchResults results={results} />
+      {router.query.searchType === "image" ? (
+        <ImageResults results={results} />
+      ) : (
+        <SearchResults results={results} />
+      )}
     </div>
   );
 }
 
-/* server side function */
+// /* server side function */
+
 export async function getServerSideProps(context) {
   const startIndex = context.query.start || "1";
   const mockData = false;
@@ -35,7 +41,6 @@ export async function getServerSideProps(context) {
           context.query.searchType && "&searchType=image"
         }&start=${startIndex}`
       ).then((response) => response.json());
-
   return {
     props: {
       results: data,
