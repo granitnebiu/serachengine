@@ -7,7 +7,7 @@ import Response from "../Response";
 import ImageResults from "@/ImageResults";
 
 export default function Search({ results }) {
-  console.log(results);
+  // console.log(results);
   const router = useRouter();
   return (
     <div>
